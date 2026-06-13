@@ -27,5 +27,11 @@ public class PlayerControllerX : MonoBehaviour
         // these are inverted when in the game window (W = down, S = up), I didn't adjust these as it didn't specifically state it was a bug or something I needed to solve
         // and that's how a  plane's tail rotor functions either way.
         transform.Rotate(Vector3.right * rotationSpeed * Time.deltaTime * verticalInput);
+
+
+        
+        
+        
+        //I am adding this additional note to check my Github's functionality that it captures this part of the project, please ignore
     }
 }
