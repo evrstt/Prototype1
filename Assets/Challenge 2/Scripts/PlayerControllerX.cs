@@ -6,19 +6,21 @@ public class PlayerControllerX : MonoBehaviour
     public GameObject dogPrefab;
     public InputAction fireAction;
 
-    // Start is called before the first frame update
+    private float dogSpawnCooldown = 1.0f;
+    private float nextDogSpawnTime = 0.0f;
+
     void Start()
     {
         fireAction.Enable();
     }
 
-    // Update is called once per frame
     void Update()
     {
-        // On spacebar press, send dog
-        if (fireAction.triggered)
+        if (fireAction.triggered && Time.time >= nextDogSpawnTime)
         {
             Instantiate(dogPrefab, transform.position, dogPrefab.transform.rotation);
+
+            nextDogSpawnTime = Time.time + dogSpawnCooldown;
         }
     }
 }
